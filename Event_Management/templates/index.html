@@ -1,0 +1,196 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- SITE TITTLE -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>
+    {% block title %}
+    Home Page
+    {% endblock%}
+  </title>
+  
+  <!-- PLUGINS CSS STYLE -->
+  <!-- Bootstrap -->
+  <link href="{% static 'plugins/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <!-- Themefisher Font -->  
+  <link href="{% static 'plugins/themefisher-font/style.css' %}" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link href="{% static 'plugins/font-awsome/css/font-awesome.min.css' %}" rel="stylesheet">
+  <!-- Magnific Popup -->
+  <link href="{% static 'plugins/magnific-popup/magnific-popup.css' %}" rel="stylesheet">
+  <!-- Slick Carousel -->
+  <link href="{% static 'plugins/slick/slick.css' %}" rel="stylesheet">
+  <link href="{% static 'plugins/slick/slick-theme.css' %}" rel="stylesheet">
+  <!-- CUSTOM CSS -->
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+  <!-- FAVICON -->
+  <link href="{% static 'images/favicon.png' %}" rel="shortcut icon">
+
+</head>
+
+<body class="body-wrapper">
+
+<!--========================================
+=            Navigation Section            =
+=========================================-->
+
+<nav class="navbar main-nav border-less fixed-top navbar-expand-lg p-0">
+  <div class="container-fluid p-0">
+      <!-- logo -->
+      <a class="navbar-brand" href="{% url 'index' %}">
+        <img src="{% static 'images/logo.png' %}" alt="logo">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="fa fa-bars"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item dropdown active dropdown-slide">
+            <a class="nav-link" href="{% url 'index' %}">Home
+                <span>/</span>
+              </a>
+          
+          
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'about' %}">About
+            <span>/</span>
+          </a>
+        </li>
+        <li class="nav-item dropdown dropdown-slide">
+          <a class="nav-link" href="#" data-toggle="dropdown">Pages<span>/</span></a>
+            <!-- Dropdown list -->
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="{% url 'single-speaker'%}">Single Speaker</a>
+              <a class="dropdown-item" href="{% url 'gallery'%}">Gallery</a>
+             
+              <a class="dropdown-item" href="{% url 'testimonial' %}">Testimonial</a>
+              <a class="dropdown-item" href="{% url 'pricing' %}">Pricing</a>
+             
+            </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'event_list'%}">Schedule<span>/</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'sponsors'%}">Sponsors<span>/</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'contact' %}">Contact<span>/</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'booking_list' %}">Booking List<span>/</span></a>
+        </li>
+      </ul>
+      <a href="{% url 'book_event' event_id=1 %}" class="ticket">
+        <img src="{% static 'images/icon/ticket.png' %}" alt="ticket">
+        <span>Buy Ticket</span>
+      </a>
+      </div>
+  </div>
+</nav>
+
+<!--====  End of Navigation Section  ====-->
+
+<!--============================
+=            Banner            =
+=============================-->
+{% block content %}
+<section class="banner bg-banner-one overlay">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<!-- Content Block -->
+				<div class="block">
+					<!-- Coundown Timer -->
+					<div class="timer"></div>
+					<h1>Business</h1>
+					<h2>Conference 2017</h2>
+					<h6>02-05 July 2017 California</h6>
+					<!-- Action Button -->
+					<a href="{% url 'book_event' event_id=1 %}" class="btn btn-white-md">get ticket now</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+	
+<!--====  End of Banner  ====-->
+{% endblock %}
+
+
+<footer class="footer-main">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="block text-center">
+            <div class="footer-logo">
+              <img src="{% static 'images/footer-logo.png' %}" alt="logo" class="img-fluid">
+            </div>
+            <ul class="social-links-footer list-inline">
+              <li class="list-inline-item">
+                <a href="#"><i class="fa fa-facebook"></i></a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#"><i class="fa fa-twitter"></i></a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#"><i class="fa fa-instagram"></i></a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#"><i class="fa fa-rss"></i></a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#"><i class="fa fa-vimeo"></i></a>
+              </li>
+            </ul>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+</footer>
+<!-- Subfooter -->
+<footer class="subfooter">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 align-self-center">
+        <div class="copyright-text">
+          <p><a href="#">Eventre</a> &#169; It Was Developed By Ajith G</p>
+        </div>
+      </div>
+   
+    </div>
+  </div>
+</footer>
+
+  <!-- JAVASCRIPTS -->
+  <!-- jQuey -->
+  <script src="{% static 'plugins/jquery/jquery.js' %}"></script>
+  <!-- Popper js -->
+  <script src="{% static 'plugins/popper/popper.min.js' %}"></script>
+  <!-- Bootstrap 4 -->
+  <script src="{% static 'plugins/bootstrap/js/bootstrap.min.js' %}"></script>
+  <!-- Smooth Scroll -->
+  <script src="{% static 'plugins/smoothscroll/SmoothScroll.min.js' %}"></script>  
+  <!-- Isotope -->
+  <script src="{% static 'plugins/isotope/mixitup.min.js' %}"></script>  
+  <!-- Magnific Popup -->
+  <script src="{% static 'plugins/magnific-popup/jquery.magnific-popup.min.js' %}"></script>
+  <!-- Slick Carousel -->
+  <script src="{% static 'plugins/slick/slick.min.js' %}"></script>  
+  <!-- SyoTimer -->
+  <script src="{% static 'plugins/syotimer/jquery.syotimer.min.js' %}"></script>
+  <!-- Google Map -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCC72vZw-6tGqFyRhhg5CkF2fqfILn2Tsw"></script>
+  <script type="text/javascript" src="{% static 'plugins/google-map/gmap.js' %}"></script>
+  <!-- Custom Script -->
+  <script src="{% static 'js/custom.js' %}"></script>
+</body>
+
+</html>

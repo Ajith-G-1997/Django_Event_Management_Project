@@ -1,0 +1,38 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block title %}Booking List{% endblock %}
+
+{% block content %}
+<section class="container mt-5">
+    <h1 class="mb-4">Booking List</h1>
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Customer Name</th>
+                <th>Phone</th>
+                <th>Speaker</th>
+                <th>Event</th>
+                <th>Booking Summary</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for booking in events %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ booking.customer_name }}</td>
+                <td>{{ booking.phone }}</td>
+                <td>{{ booking.speaker.name }}</td>
+                <td>{{ booking.event.subject }}</td>
+                <td>{{ booking.customer_name }} - {{ booking.event.subject }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="6" class="text-center">No bookings found</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</section>
+{% endblock %}
